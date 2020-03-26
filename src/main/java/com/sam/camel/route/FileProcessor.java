@@ -12,6 +12,8 @@ public class FileProcessor implements Processor {
 
         String file = exchange.getIn().getBody(String.class);
 //        byte[] bytes =exchange.getIn().getBody(byte[].class);
+
+        exchange.getIn().setHeader("Count", new Integer( 100));
         System.out.println(file);   // print the contents of file.
     }
 }
