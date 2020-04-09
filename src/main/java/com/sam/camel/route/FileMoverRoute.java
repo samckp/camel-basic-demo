@@ -15,8 +15,10 @@ public class FileMoverRoute extends RouteBuilder {
 //                .log(LoggingLevel.INFO, "${body}")
                 .process(new FileProcessor())
 
-                .log("Count" + simple("${header.Count}++"))
+                .log("Count" + "${header.Count}++")
                 .to("mock:end")
+                .end()
+                .log("Count " +"${header.Count}++")
             ;
     }
 }
